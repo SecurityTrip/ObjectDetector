@@ -1,16 +1,31 @@
-# This is a sample Python script.
+# https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb#scrollTo=6cPY9Ou4sWs_
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# For running inference on the TF-Hub module.
+import tensorflow as tf
 
+import tensorflow_hub as hub
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# For downloading the image.
+import matplotlib.pyplot as plt
+import tempfile
+from six.moves.urllib.request import urlopen
+from six import BytesIO
 
+# For drawing onto the image.
+import numpy as np
+from PIL import Image
+from PIL import ImageColor
+from PIL import ImageDraw
+from PIL import ImageFont
+from PIL import ImageOps
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# For measuring the inference time.
+import time
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import cv2
+
+# Print Tensorflow version
+print(tf.__version__)
+
+# Check available GPU devices.
+print("The following GPU devices are available: %s" % tf.test.gpu_device_name())
